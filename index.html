@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+
+.footer-custom {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+   
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+body {
+    background-color: #d1d1d1;
+    margin: 0;
+    padding-top: 100px;
+}
+
+
+.navbar-custom {
+    background-color: #000000;
+    padding: 15px 30px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-link {
+    color: #b0b3b8;
+    font-size: 1.8rem;
+    padding: 10px;
+}
+
+.nav-link.active {
+    color: #1877f2;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.search-bar {
+    background-color: #3a3b3c;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: white;
+    width: 220px;
+}
+
+.search-bar::placeholder {
+    color: #b0b3b8;
+}
+
+.icon-btn {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 15px;
+}
+
+.navbar-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-center a {
+    margin: 0 15px;
+}
+
+.custom-column {
+    background-color: #000;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.sidebar {
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sidebar .nav-link {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    color: white !important;
+    padding: 8px;
+}
+
+.sidebar .nav-link i {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.col-md-2 {
+    flex: 0 0 18%;
+    max-width: 18%;
+    padding-left: 15px; 
+}
+
+.col-md-8 {
+    flex: 0 0 64%;
+    max-width: 64%;
+}
+
+.post {
+    background-color: white;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.post img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.post .post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post .post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post .post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+}
+
+.post .post-actions i {
+    font-size: 1.3rem;
+    margin-right: 5px;
+}
+
+.ad-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.ad {
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.ad img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.ad p {
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.messages {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.messages h5 {
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.chat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #000; 
+}
+
+.chat img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-info strong {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.chat-info small {
+    color: #b0b3b8;
+    font-size: 0.8rem;
+}
+
+.sidebar {
+    height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
+.messages {
+    margin-top: auto; 
+}
+
+.messages2{
+     position: fixed;
+    top: 100px; 
+    bottom: 0;
+    width: 16%; 
+    height: calc(100vh - 160px); 
+    overflow-y: auto;
+}
+
+/* Responsive: Ocultar barras laterales y ajustar para moviles en móviles */
+@media (max-width: 768px) {
+            .barra {
+                display: none;
+            }
+            
+            .col-md-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 10px;
+            }
+
+            .post {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .post img {
+                width: 100%;
+                height: auto;
+            }
+
+            .post .post-header img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .post .post-actions {
+                font-size: 0.8rem;
+            }
+        }
+
+    </style>
+    <title>JaimeBook</title>
+</head>
+<body>
+
+<nav class="navbar-custom"> 
+    <div class="d-flex align-items-center">
+        <i> <img src="jaimebook.png" width="50px" height="50px" style="border-radius: 10%;" alt=""> </i>
+        &nbsp; &nbsp; &nbsp;
+        <input type="text" class="search-bar" placeholder="Buscar">
+    </div>
+
+    <div class="navbar-center">
+        <a href="#" class="nav-link active"><i class="bi bi-house-door-fill"></i></a>
+        <a href="#" class="nav-link"><i class="bi bi-flag"></i></a>
+        <a href="#" class="nav-link"><i class="bi bi-play-btn"></i></a>
+        <a href="#" class="nav-link"><i class="bi bi-shop"></i></a>
+        <a href="#" class="nav-link"><i class="bi bi-people"></i></a>
+    </div>
+
+    <div class="d-flex align-items-center">
+        <span class="text-white fs-5 me-3">Jaime LG</span>
+        <img src="rajoy.jpg" class="profile-img me-3" alt="Perfil">
+        <i class="bi bi-grid icon-btn"></i>
+        <i class="bi bi-chat icon-btn"></i>
+        <i class="bi bi-bell icon-btn"></i>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        
+        <div class="col-md-2 barra">
+            <div class="sidebar messages2">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-card-text"></i> Tablón</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-box-seam"></i> Productos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-people"></i> Amigos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-cart"></i> Mercado</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-controller"></i> Juegos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-airplane"></i> Viajes</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-cloud-rain"></i> Clima</a></li>
+                    
+                </ul>
+
+               
+
+                <div class="dropdown">
+                    <button style="color: white;" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Configuración
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Ajustes de privacidad</a></li>
+                        <li><a class="dropdown-item" href="#">Políticas de privacidad</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            
+            
+        </div>
+
+        <div class="col-md-8">
+            <div class="post">
+                <div class="post-header">
+                    <img src="carvajal.webp" alt="Perfil">
+                    <strong>Daniel Montes</strong>  &nbsp;  <i class="bi bi-patch-check"></i>
+                </div>
+                <p>¡Hoy fue un gran día! 🌞 Mira que paisajes.
+                </p>
+                <img src="ale.jpg" alt="Paisaje">
+                <div class="post-actions">
+                    <span>34<i class="bi bi-hand-thumbs-up"></i> Me gusta</span>
+                    <span><i class="bi bi-chat"></i> Comentar</span>
+                    <span><i class="bi bi-share"></i> Compartir</span>
+                </div>
+            </div>
+            
+            <hr>
+
+            <div class="post">
+                <div class="post-header">
+                    <img src="carlillos.jpg" alt="Perfil">
+                    <strong>Supra Luis Alcaide</strong> &nbsp; <i class="bi bi-badge-ad-fill"></i>
+                </div>
+                <p>¿A qué esperas? Compra una cita en  <a href="">first.date</a> ¡Envíos gratis! </p>
+                <img src="cita.jpg" alt="PowerLifter">
+                <div class="post-actions">
+                    <span><i class="bi bi-hand-thumbs-up"></i> Me gusta</span>
+                    <span><i class="bi bi-chat"></i> Comentar</span>
+                    <span><i class="bi bi-share"></i> Compartir</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="post">
+                <div class="post-header">
+                    <img src="espada.jpeg" alt="Perfil">
+                    <strong>Alberto ⚔️ Pino</strong>
+                </div>
+                <p>Me complace anunciaros mi último trabajo.Tras muchas horas de dedicación os presento... GOKU-TOMÁS</p>
+                <img src="goku.png" alt="">
+                <div class="post-actions">
+                    <span><i class="bi bi-hand-thumbs-up"></i> Me gusta</span>
+                    <span><i class="bi bi-chat"></i> Comentar</span>
+                    <span><i class="bi bi-share"></i> Compartir</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-2 barra">
+            <div class="sidebar messages2">
+                
+                <!-- Sección de Anuncios -->
+                 <p><i class="bi bi-badge-ad-fill"></i> &nbsp; TE RECOMENDAMOS...</p>
+                <div class="ad-section">
+                    
+                    <div class="ad">
+                        <img src="cuadernoOxford.jpg" alt="Anuncio 1">
+                        <p>Cuaderno  </p> 
+                        
+                        
+                    </div>
+                    <div class="ad">
+                        <img src="portatilMSIS.webp" alt="Anuncio 2">
+                        <a href="">MSI</a>
+                    </div>
+                    
+                </div>
+        
+                <!-- Sección de Mensajes -->
+                <div class="messages ">
+                    <h5>Mensajes</h5>
+                    <div class="chat">
+                        <img src="anapeleteiro.jpg" alt="Perfil">
+                        <div class="chat-info">
+                            <strong>Inés Suarez</strong>
+                            <small>¿Cómo estás?</small>
+                        </div>
+                    </div>
+                    <div class="chat">
+                        <img src="antonioRecio.webp" alt="Perfil">
+                        <div class="chat-info">
+                            <strong>Antonio Recio</strong>
+                            <small>Nos vemos luego</small>
+                        </div>
+                    </div>
+                    <div class="chat">
+                        <img src="dvicio.jpg" alt="Perfil">
+                        <div class="chat-info">
+                            <strong>DVICIO &nbsp;  <i class="bi bi-patch-check"></i></strong>
+                            <small>Mañana grabamos un tema</small>
+                        </div>
+                    </div>
+                   
+                </div>
+        
+            </div>
+        </div>
+        
+        
+    </div>    
+
+
+</div>
+<footer class="footer-custom">
+    <p>© 2025 JaimeBook. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
+
+
+
+        
